@@ -22,7 +22,7 @@ function Login() {
   })
 
   useEffect(() => {
-    if(isAuth) navigate("/")
+    if(isAuth) navigate("/landing")
   }, [isAuth])
 
 

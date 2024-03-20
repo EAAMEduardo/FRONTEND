@@ -28,8 +28,9 @@ function App() {
             <Route path="/about" element={<About></About>}></Route>
             <Route path="/listing/:id" element={<Listing></Listing>}></Route>
             <Route path="/search" element={<Search></Search>}></Route>
+            <Route path="/" element={<Login></Login>}></Route>
             <Route element={<PrivateRoutes></PrivateRoutes>}>
-              <Route path="/" element={<ShowListings></ShowListings>}></Route>
+              <Route path="/landing" element={<ShowListings></ShowListings>}></Route>
             <Route path="/create-listing" element={<ListingPage></ListingPage>}></Route>
             <Route path="/listings/:id" element={<HomePage></HomePage>}></Route>
             <Route path="/profile/:id" element={<Profile></Profile>}></Route>

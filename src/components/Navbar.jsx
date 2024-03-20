@@ -45,7 +45,7 @@ function Navbar() {
 
 
         <div className="links">
-            <Link className='link hidden' to="/">Home</Link>
+            <Link className='link hidden' to="/landing">Home</Link>
             <Link className='link hidden' to="about">About</Link>
             {user ? (
               <Link className='link hidden' to={`/favorites/${user.id}`}>Favorites</Link>
