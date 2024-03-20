@@ -80,7 +80,7 @@ function NewListings() {
 
   return (
     <div className="news-container">
-      {newestListing.length > 0 ? (
+      {newestListing.length > 0 ? 
          newestListing.map(listing => {
           return(
              <div  key={listing._id} className="landing-listing">
@@ -110,7 +110,7 @@ function NewListings() {
                    </div>
                 </div>
             </div>)}
-      )) :(<></>) }
+      ) :(<></>) }
      </div>
   )
 }
