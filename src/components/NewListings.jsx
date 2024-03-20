@@ -80,37 +80,39 @@ function NewListings() {
 
   return (
     <div className="news-container">
-      {newestListing.map(listing => {
-        return(
-           <div  key={listing._id} className="landing-listing">
-              <div className="landing-cover">
-                <img className='landing-img' src={listing.imageUrls[0]}></img>
-                {listing.type === "rent" ? (
-                  <button>$ {new Intl.NumberFormat().format(listing.regularPrice) } /Month</button>
-                ): (<button>$ {new Intl.NumberFormat().format(listing.regularPrice) }</button>)}
-              </div>
-
-              <div className="landing-info">
-                 <h5>{listing.address.substring(0,30)}...</h5>
-                 <h2 onClick={() => navigate(`listing/${listing._id}`)}>{listing.name}</h2>
-                
-
-                 <div className="landing-rooms">
-                   <div className='rooms-flex'>
-                     <p>{listing.bedrooms} Beds - </p>
-                      <p>{listing.bathrooms} Baths</p>
+      {newestListing ? (
+        newestListing.map(listing => {
+          return(
+             <div  key={listing._id} className="landing-listing">
+                <div className="landing-cover">
+                  <img className='landing-img' src={listing.imageUrls[0]}></img>
+                  {listing.type === "rent" ? (
+                    <button>$ {new Intl.NumberFormat().format(listing.regularPrice) } /Month</button>
+                  ): (<button>$ {new Intl.NumberFormat().format(listing.regularPrice) }</button>)}
+                </div>
+  
+                <div className="landing-info">
+                   <h5>{listing.address.substring(0,30)}...</h5>
+                   <h2 onClick={() => navigate(`listing/${listing._id}`)}>{listing.name}</h2>
+                  
+  
+                   <div className="landing-rooms">
+                     <div className='rooms-flex'>
+                       <p>{listing.bedrooms} Beds - </p>
+                        <p>{listing.bathrooms} Baths</p>
+                     </div>
+  
+                     <div className="favorite">
+                        {user.favorites.some(fav => fav.name === listing.name) ? (
+                          <img onClick={() => handleFavorites(listing)} src={favorite}></img>
+                        ): <img onClick={() => handleFavorites(listing)} src={nofavorite}></img>}
+                     </div>
                    </div>
-
-                   <div className="favorite">
-                      {user.favorites.some(fav => fav.name === listing.name) ? (
-                        <img onClick={() => handleFavorites(listing)} src={favorite}></img>
-                      ): <img onClick={() => handleFavorites(listing)} src={nofavorite}></img>}
-                   </div>
-                 </div>
-              </div>
-          </div>
-        )
-       })}
+                </div>
+            </div>
+          )
+         })
+      ):(<></>)}
      </div>
   )
 }
