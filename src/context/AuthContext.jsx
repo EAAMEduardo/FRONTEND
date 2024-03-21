@@ -177,6 +177,7 @@ const AuthProvider = ({children}) => {
          
         const checkToken = async () => {
             const cookies = Cookie.get()
+            console.log(cookies)
             if(!cookies.token) {
                 setUser(null)
                 setIsAuth(false)
