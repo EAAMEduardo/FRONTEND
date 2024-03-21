@@ -65,6 +65,7 @@ const AuthProvider = ({children}) => {
         console.log(result)
         setIsAuth(true)
         setUser(result.data)
+        Cookie.set("token", result.data.keyToken)
        } catch (error) {
         console.log(error)
        setFails(error.response.data)
@@ -80,6 +81,7 @@ const AuthProvider = ({children}) => {
             const result = await google(user)
             console.log(result)
             setUser(result.data)
+            Cookie.set("token", result.data.keyToken)
             setIsAuth(true)
         } catch (error) {
             console.log(error)

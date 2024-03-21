@@ -100,7 +100,7 @@ function Profile() {
           setUpdateSuccess(false)
         }, 4000);
       }
-    })
+    },[])
 
   
 
